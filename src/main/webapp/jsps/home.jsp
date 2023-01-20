@@ -12,7 +12,7 @@
 <h1 align="center">Welcome to LokeshReddy Technologies.</h1>
 <h2 align="center"> We are supporting the Ebay Black Friday Project.
 	LokeshReddy Technologies is a software development company. 
-	Class26 will run from October 2, 2021.
+	Class26 will run from October 2, 2023.
 	The shout of the King Ganesh/sai is in our midst. HE IS OUR SUCCESS ACCESS KEY</h2>
 <hr>
 <div style="text-align: center;">
@@ -20,10 +20,10 @@
 		<img src="images/mylandmarklogo.jpg" alt="" width="200">
 	</span>
 	<span style="font-weight: bold;">
-		Landmark Technology, 
-		Toronto, Ontario, Canada
-		+1 437 215 2483,
-		mylandmarktech@gmail.com
+		Lokeshreddy Technology, 
+		Banglore, Martahlli,Karataka.
+		+91 987654321,
+		mylokesh@gmail.com
 		<br>
 		<a href="mailto:lokesh@gmail.com">Mail to Lokeshreddy Technologies</a>
 	</span>
