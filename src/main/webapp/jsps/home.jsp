@@ -32,8 +32,8 @@
 	<p> Service : <a href="services/employee/getEmployeeDetails">Get Employee Details </p>
 <hr>
 <hr>
-<p align=center>Landmark Technologies - Consultant, Training, Development Center.</p>
-<p align=center><small>Copyrights 2019 by <a href="http://mylandmark.tech/">Lokeshreddy Technologies</a> </small></p>
+<p align=center>Lokesh Technologies - Consultant, Training, Development Center.</p>
+<p align=center><small>Copyrights 2019 by <a href="http://mylokesh.tech/">Lokeshreddy Technologies</a> </small></p>
 
 </body>
 </html>
