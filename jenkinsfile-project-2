@@ -21,7 +21,7 @@ echo "The jenkins url is: ${env.JENKINS_URL}"
 stage('build package'){
     sh "${mavenHome}/bin/mvn clean package"
 }
-/*
+
 stage('Executing the sonarqube report'){
     sh "${mavenHome}/bin/mvn clean sonar:sonar"
 }
@@ -35,7 +35,6 @@ stage('Deploy the APP into tomcat server'){
    sh "scp -o StrictHostKeyChecking=no target/maven-web-app.war ec2-user@172.31.32.229:/opt/apache-tomcat-9.0.70/webapps/"
     }
  }
- */
 }
 catch (e) {
 currentBuild.result ="FAILURE"
