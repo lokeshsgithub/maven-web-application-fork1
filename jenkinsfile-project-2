@@ -38,10 +38,10 @@ stage('Deploy the APP into tomcat server'){
  */
 }
 cache(e){
-currentBuild.result="FAILURE"
+currentBuild.result('FAILURE')
 }
 finally{
-sendslacknotifications(currentBuild.result)
+sendslacknotifications('currentBuild.result')
 }
 
 }//node closing
