@@ -1,0 +1,60 @@
+@Library('lokisharedlibs') _
+pipeline {
+    agent {
+        label'icicibanknode'
+    } 
+ 
+ tools {
+  maven 'maven3.9.0'
+}
+options {
+  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
+  timestamps()
+}
+parameters {
+  choice choices: ['master', 'stage', 'development'], description: 'select the branch', name: 'BranchName'
+  string defaultValue: 'Lokeshreddy', description: 'overide the default value', name: 'PersonName'
+}
+
+
+    stages{
+        
+        stage('checkoutcode'){
+            steps{
+              sendSlackNotifications('STARTED')  
+               git branch: "${params.BranchName}", credentialsId: '35cb5824-56de-4080-a955-741764651206', url: 'https://github.com/lokeshsgithub/maven-web-application-fork1.git'
+            }
+        }
+        
+        stage('Build'){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        stage('Executing the sonarqube report'){
+            steps{
+                sh "mvn clean sonar:sonar"
+            }
+        }
+        stage('UploadArtifactsIntoNexus'){
+        steps{
+        sh  "mvn clean deploy"
+           }
+        }
+        stage('Deploy to APP server'){
+            steps{
+                sshagent(['ba0bebc4-0aaa-4331-8b25-c0c583f8e649']) {
+                sh "scp -o StrictHostKeyChecking=no target/maven-web-app.war ec2-user@172.31.43.82:/opt/apache-tomcat-9.0.71/webapps"
+            }
+          }
+        }
+    }//stages closed
+    post {
+        success{
+            sendSlackNotifications(currentBuild.result)
+        }
+        failure{
+            sendSlackNotifications(currentBuild.result)
+        }
+    }
+}//pipeline closed
